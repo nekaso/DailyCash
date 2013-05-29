@@ -18,6 +18,11 @@
 		09C5B054175395C100CE8B1C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C5B053175395C100CE8B1C /* Default-568h@2x.png */; };
 		09C5B057175395C100CE8B1C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C5B055175395C100CE8B1C /* MainStoryboard.storyboard */; };
 		09C5B05A175395C200CE8B1C /* DailyCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5B059175395C200CE8B1C /* DailyCashViewController.m */; };
+		09C5B0621753974800CE8B1C /* DailyCashSummaryOfMonth.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5B0611753974800CE8B1C /* DailyCashSummaryOfMonth.m */; };
+		09C5B0651753978600CE8B1C /* DailyCashNewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5B0641753978600CE8B1C /* DailyCashNewItemViewController.m */; };
+		09C5B0681753993300CE8B1C /* DailyCashItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5B0671753993300CE8B1C /* DailyCashItem.m */; };
+		09C5B06A17539BA300CE8B1C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5B06917539BA300CE8B1C /* libsqlite3.0.dylib */; };
+		09C5B06D17539BFD00CE8B1C /* DailyCashDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5B06C17539BFD00CE8B1C /* DailyCashDBHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,15 @@
 		09C5B056175395C100CE8B1C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		09C5B058175395C100CE8B1C /* DailyCashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DailyCashViewController.h; sourceTree = "<group>"; };
 		09C5B059175395C200CE8B1C /* DailyCashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyCashViewController.m; sourceTree = "<group>"; };
+		09C5B0601753974800CE8B1C /* DailyCashSummaryOfMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashSummaryOfMonth.h; sourceTree = "<group>"; };
+		09C5B0611753974800CE8B1C /* DailyCashSummaryOfMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashSummaryOfMonth.m; sourceTree = "<group>"; };
+		09C5B0631753978600CE8B1C /* DailyCashNewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashNewItemViewController.h; sourceTree = "<group>"; };
+		09C5B0641753978600CE8B1C /* DailyCashNewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashNewItemViewController.m; sourceTree = "<group>"; };
+		09C5B0661753993300CE8B1C /* DailyCashItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashItem.h; sourceTree = "<group>"; };
+		09C5B0671753993300CE8B1C /* DailyCashItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashItem.m; sourceTree = "<group>"; };
+		09C5B06917539BA300CE8B1C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		09C5B06B17539BFD00CE8B1C /* DailyCashDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashDBHelper.h; sourceTree = "<group>"; };
+		09C5B06C17539BFD00CE8B1C /* DailyCashDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashDBHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C5B06A17539BA300CE8B1C /* libsqlite3.0.dylib in Frameworks */,
 				09C5B03E175395C100CE8B1C /* UIKit.framework in Frameworks */,
 				09C5B040175395C100CE8B1C /* Foundation.framework in Frameworks */,
 				09C5B042175395C100CE8B1C /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +71,7 @@
 		09C5B031175395C100CE8B1C = {
 			isa = PBXGroup;
 			children = (
+				09C5B06917539BA300CE8B1C /* libsqlite3.0.dylib */,
 				09C5B043175395C100CE8B1C /* DailyCash */,
 				09C5B03C175395C100CE8B1C /* Frameworks */,
 				09C5B03B175395C100CE8B1C /* Products */,
@@ -89,6 +105,14 @@
 				09C5B058175395C100CE8B1C /* DailyCashViewController.h */,
 				09C5B059175395C200CE8B1C /* DailyCashViewController.m */,
 				09C5B044175395C100CE8B1C /* Supporting Files */,
+				09C5B0601753974800CE8B1C /* DailyCashSummaryOfMonth.h */,
+				09C5B0611753974800CE8B1C /* DailyCashSummaryOfMonth.m */,
+				09C5B0631753978600CE8B1C /* DailyCashNewItemViewController.h */,
+				09C5B0641753978600CE8B1C /* DailyCashNewItemViewController.m */,
+				09C5B0661753993300CE8B1C /* DailyCashItem.h */,
+				09C5B0671753993300CE8B1C /* DailyCashItem.m */,
+				09C5B06B17539BFD00CE8B1C /* DailyCashDBHelper.h */,
+				09C5B06C17539BFD00CE8B1C /* DailyCashDBHelper.m */,
 			);
 			path = DailyCash;
 			sourceTree = "<group>";
@@ -177,6 +201,10 @@
 				09C5B04A175395C100CE8B1C /* main.m in Sources */,
 				09C5B04E175395C100CE8B1C /* DailyCashAppDelegate.m in Sources */,
 				09C5B05A175395C200CE8B1C /* DailyCashViewController.m in Sources */,
+				09C5B0621753974800CE8B1C /* DailyCashSummaryOfMonth.m in Sources */,
+				09C5B0651753978600CE8B1C /* DailyCashNewItemViewController.m in Sources */,
+				09C5B0681753993300CE8B1C /* DailyCashItem.m in Sources */,
+				09C5B06D17539BFD00CE8B1C /* DailyCashDBHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +292,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DailyCash/DailyCash-Prefix.pch";
 				INFOPLIST_FILE = "DailyCash/DailyCash-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -275,7 +305,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DailyCash/DailyCash-Prefix.pch";
 				INFOPLIST_FILE = "DailyCash/DailyCash-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -299,6 +331,7 @@
 				09C5B05F175395C200CE8B1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
