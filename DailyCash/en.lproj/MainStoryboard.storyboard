@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="AM1-bD-xaw" customClass="DailyCashNewItemViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kbY-lc-YQC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Categary:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0W-pn-qa6">
@@ -58,7 +58,6 @@
                                 </state>
                                 <connections>
                                     <action selector="saveItem:" destination="AM1-bD-xaw" eventType="touchUpInside" id="yja-j6-V37"/>
-                                    <segue destination="2" kind="push" id="T92-Cz-DnF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3s-jN-UX4">
@@ -75,7 +74,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelNewItem:" destination="AM1-bD-xaw" eventType="touchUpInside" id="aDB-DB-LIl"/>
-                                    <segue destination="2" kind="push" identifier="CancelBackToMainPage" id="bRJ-x8-SHw"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTP-Fo-Sln">
@@ -153,7 +151,7 @@
             <objects>
                 <viewController storyboardIdentifier="WelcomePage" id="2" customClass="DailyCashViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Income :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGh-5G-n3x">
@@ -366,7 +364,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="bRJ-x8-SHw"/>
-    </inferredMetricsTieBreakers>
 </document>

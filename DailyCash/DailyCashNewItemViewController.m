@@ -13,6 +13,7 @@
 @interface DailyCashNewItemViewController ()
 {
     sqlite3 *db;
+    UIAlertView *alert;
 }
 @end
 
@@ -111,18 +112,36 @@
     NSLog(@"2. dbrc = %d",dbrc);
     if (dbrc == SQLITE_DONE) {
         NSLog(@"insertSql is OK");
-        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Note" message:@"Save is successful!" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        alert=[[UIAlertView alloc] initWithTitle:@"Note" message:@"Save is successful!" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
         [alert show];
         
+        UIActivityIndicatorView *active = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        
+        active.center = CGPointMake(alert.bounds.size.width/2, alert.bounds.size.height-40);
+        
+        [alert addSubview:active];
+        
+        [active startAnimating];
+        
+         NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.0001 target:self selector:@selector(alertDismiss) userInfo:nil repeats:NO];
+        
+        [self performSelector:@selector(backToMainPage) withObject:nil afterDelay:0.5];
     }
-    
-    
 }
 
+-(void)alertDismiss
+{
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+-(void)backToMainPage
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
 - (IBAction)cancelNewItem:(id)sender {
-    
-    [self performSegueWithIdentifier:@"CancelBackToMainPage" sender:self];
-    
+    [self backToMainPage];
 }
 
 - (IBAction)textFieldDoneEditing:(id)sender
