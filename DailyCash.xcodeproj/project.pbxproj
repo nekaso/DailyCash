@@ -44,7 +44,7 @@
 		09C5B059175395C200CE8B1C /* DailyCashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyCashViewController.m; sourceTree = "<group>"; };
 		09C5B0601753974800CE8B1C /* DailyCashSummaryOfMonth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashSummaryOfMonth.h; sourceTree = "<group>"; };
 		09C5B0611753974800CE8B1C /* DailyCashSummaryOfMonth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashSummaryOfMonth.m; sourceTree = "<group>"; };
-		09C5B0631753978600CE8B1C /* DailyCashNewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashNewItemViewController.h; sourceTree = "<group>"; };
+		09C5B0631753978600CE8B1C /* DailyCashNewItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashNewItemViewController.h; sourceTree = "<group>"; usesTabs = 0; };
 		09C5B0641753978600CE8B1C /* DailyCashNewItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashNewItemViewController.m; sourceTree = "<group>"; };
 		09C5B0661753993300CE8B1C /* DailyCashItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashItem.h; sourceTree = "<group>"; };
 		09C5B0671753993300CE8B1C /* DailyCashItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashItem.m; sourceTree = "<group>"; };
