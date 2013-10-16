@@ -14,6 +14,7 @@
 {
     sqlite3 *db;
     UIAlertView *alert;
+    NSDateFormatter *dateFormatter;
 }
 @end
 
@@ -32,32 +33,31 @@
 {
     [super viewDidLoad];
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];
-    NSLog(@"%@", strDate);
  
     _txtCashAccount.text = @"0.0";
     _txtCashAccount.keyboardType = UIKeyboardTypeDecimalPad;
     _txtCashAccount.clearsOnBeginEditing = YES;
-    //_txtCashAccount.returnKeyType = UIReturnKeyDone;
     
     _txtCategaryName.text = @"Food";
-    //_categaryName.keyboardType = UIKeyboardTypeDecimalPad;
     _txtCategaryName.clearsOnBeginEditing = YES;
-    //_txtCategaryName.returnKeyType = UIReturnKeyDone;
     
     _txtDate.text = strDate;
-    _txtDate.keyboardType = UIKeyboardTypeDecimalPad;
-    _txtDate.clearsOnBeginEditing = YES;
-    //_txtDate.returnKeyType = UIReturnKeyDone;
+    //_txtDate.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    self.txtDate.inputView = self.datePickerView;
+    //self.customInput.hidden = YES;
+    
+    //self.txtDate.inputAccessoryView = self.accessoryView;
+    //self.accessoryView.hidden = YES;
     
     _txtNote.text = @"No Comments!";
     _txtNote.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     _txtNote.returnKeyType = UIReturnKeyDone;
     _txtNote.clearsContextBeforeDrawing =YES;
 	_txtNote.delegate =self;
-
         
     UITapGestureRecognizer *tapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTapped:)];
     tapGr.cancelsTouchesInView = NO;
@@ -71,6 +71,7 @@
 }
 
 - (IBAction)saveItem:(id)sender {
+    
     DailyCashItem *dailyCashItem = [[DailyCashItem alloc] init];
     dailyCashItem.account = _txtCashAccount.text;
     dailyCashItem.categaryName  = _txtCategaryName.text;
@@ -83,9 +84,9 @@
     
     int dbrc;
     dbrc = sqlite3_open([path UTF8String], &db);
-    //判断是否成功打开
+
     if (dbrc == SQLITE_OK) {
-        NSLog(@"成功打开数据库");
+        NSLog(@"Open database successfully!");
     }
     
 
@@ -152,7 +153,6 @@
 -(void)viewTapped:(UITapGestureRecognizer*)tapGr{
     [self.txtCashAccount resignFirstResponder];
     [self.txtCategaryName resignFirstResponder];
-    [self.txtDate resignFirstResponder];
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString*)text
@@ -163,5 +163,24 @@
     }
     return YES;
 }
+
+- (IBAction)dateChanged:(id)sender {
+    UIDatePicker *picker = (UIDatePicker *)sender;
+    self.txtDate.text = [NSString stringWithFormat:@"%@",
+                         [dateFormatter stringFromDate:picker.date]];
+}
+
+- (IBAction)doneEditing:(id)sender {
+    if (self.txtDate.text.length == 0) {
+        self.txtDate.text= [dateFormatter stringFromDate:[NSDate date]];
+    }
+    [self.txtDate resignFirstResponder];
+}
+
+- (IBAction)clickInDateTextFiled:(id)sender {
+    //self.customInput.hidden = NO;
+    //self.accessoryView.hidden = NO;
+}
+
 
 @end

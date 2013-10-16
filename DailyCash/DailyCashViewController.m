@@ -12,6 +12,7 @@
 @interface DailyCashViewController ()
 {
     sqlite3 *db;
+    UIAlertView *alert;
 }
 @end
 
@@ -32,9 +33,8 @@
     
     int dbrc;
     dbrc = sqlite3_open([path UTF8String], &db);
-    //判断是否成功打开
     if (dbrc == SQLITE_OK) {
-        NSLog(@"成功打开数据库");
+        NSLog(@"Open database successful!");
     }
 
 	sqlite3_stmt *dbps;
@@ -86,7 +86,6 @@
     }
     
     _lblCurrentMonth.text = strDate;
-    _lblTotalIncome.text = @"2000";
     _lblTotalOutcome.text = [numberFormatter stringFromNumber:totalOutcome];
     _lblTodayInAndOutcome.text = [numberFormatter stringFromNumber:totalAccountOfToday];
     _lblWeekInAndOutcome.text = [numberFormatter stringFromNumber:totalAccountOfWeek];
@@ -102,6 +101,7 @@
 {
     [super didReceiveMemoryWarning];
     sqlite3_close(db);
+    
     // Dispose of any resources that can be recreated.
 }
  
@@ -116,7 +116,7 @@
     NSDate *endDate = nil;
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    [calendar setFirstWeekday:2];//设定周一为周首日
+    [calendar setFirstWeekday:2];//Monday is the first day of each week
     BOOL ok = [calendar rangeOfUnit:NSWeekCalendarUnit startDate:&beginDate interval:&interval forDate:newDate];
     //NSDayCalendarUnit NSWeekCalendarUnit NSYearCalendarUnit
     if (ok) {
@@ -133,4 +133,88 @@
     return dateSpan;
 }
 
+- (IBAction)GenerateCSVReport:(id)sender {
+    NSString *csv = @"Account,CategaryName,RecordDate,NoteText\n";
+    
+    NSString *fileName = [[self documentsPath] stringByAppendingPathComponent:@"myFile.csv"];
+    NSLog(@"%@",fileName);
+    
+    @try {
+        [self writeToFile:csv withFileName:fileName];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"*************Exception: %@", exception);
+    }
+    @finally {
+        
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *sqLiteDb = [documentsDirectory stringByAppendingPathComponent:@"DailyCashDatabase"];
+    
+    @try
+    {
+    if(sqlite3_open([sqLiteDb UTF8String], &db) == SQLITE_OK)
+    {
+        const char *sqlStatement = [[NSString stringWithFormat:@"SELECT * FROM CASHITEMS"] UTF8String];
+        sqlite3_stmt *compiledStatement;
+        if(sqlite3_prepare_v2(db, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+            
+            while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+                
+                int account = sqlite3_column_int(compiledStatement, 1);
+                NSString *categaryName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];  
+                NSString *recordDate = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
+                NSString *noteText = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
+                NSString *rowString = [NSString stringWithFormat:@"%d,%@,%@,%@\n",account,categaryName,recordDate,noteText];
+                
+                [self writeToFile:rowString withFileName:fileName];
+
+            }
+            
+            sqlite3_finalize(compiledStatement);
+            sqlite3_close(db);
+            
+        }
+    }
+        else{
+            NSLog(@"database error");
+        }
+    }
+    @catch (NSException *ex)
+    {
+        NSLog(@"Exception: %@", ex);
+    }
+    
+    NSString *fileContent = [self readFromFile:fileName];
+
+    NSLog(@"%@",fileContent);
+    
+    alert=[[UIAlertView alloc] initWithTitle:@"Note" message:@"Generate report is successful!" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
+    [alert show];
+    
+}
+
+- (NSString *) documentsPath{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsdir = [paths objectAtIndex:0];
+    return documentsdir;
+}
+
+- (void) writeToFile:(NSString *)text withFileName:(NSString *)filePath{
+	    NSMutableArray *array = [[NSMutableArray alloc] init];
+	    [array addObject:text];
+	    [array writeToFile:filePath atomically:YES];
+}
+
+- (NSString *) readFromFile:(NSString *)filepath{
+	    if ([[NSFileManager defaultManager] fileExistsAtPath:filepath]){
+	        NSArray *content = [[NSArray alloc] initWithContentsOfFile:filepath];
+	        NSString *data = [[NSString alloc] initWithFormat:@"%@", [content objectAtIndex:0]];
+	        return data;
+	    } else {
+	        return nil;
+	    }
+}
 @end

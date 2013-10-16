@@ -11,11 +11,12 @@
 
 @interface DailyCashViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *lblCurrentMonth;
-@property (weak, nonatomic) IBOutlet UILabel *lblTotalIncome;
-
 @property (weak, nonatomic) IBOutlet UILabel *lblTotalOutcome;
-
 @property (weak, nonatomic) IBOutlet UILabel *lblTodayInAndOutcome;
 @property (weak, nonatomic) IBOutlet UILabel *lblWeekInAndOutcome;
 @property (weak, nonatomic) IBOutlet UILabel *lblMonthInAndOutcome;
+- (IBAction)GenerateCSVReport:(id)sender;
+- (NSString *) documentsPath;
+- (NSString *) readFromFile:(NSString *)filepath;
+- (void) writeToFile:(NSString *)text withFileName:(NSString *)filePath;
 @end
