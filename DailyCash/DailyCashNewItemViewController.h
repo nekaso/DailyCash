@@ -16,14 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtCategaryName;
 @property (weak, nonatomic) IBOutlet UITextField *txtDate;
 @property (weak, nonatomic) IBOutlet UITextView *txtNote;
-
-@property (nonatomic, retain) IBOutlet UIToolbar *accessoryView;
-@property (nonatomic, retain) IBOutlet UIDatePicker *customInput;
-
 - (IBAction)saveItem:(id)sender;
-- (IBAction)cancelNewItem:(id)sender;
-- (IBAction)dateChanged:(id)sender;
-- (IBAction)doneEditing:(id)sender;
-- (IBAction)clickInDateTextFiled:(id)sender;
 
+- (IBAction)cancelNewItem:(id)sender;
 @end
