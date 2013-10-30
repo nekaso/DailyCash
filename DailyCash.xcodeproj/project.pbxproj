@@ -23,7 +23,6 @@
 		09C5B0681753993300CE8B1C /* DailyCashItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5B0671753993300CE8B1C /* DailyCashItem.m */; };
 		09C5B06A17539BA300CE8B1C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5B06917539BA300CE8B1C /* libsqlite3.0.dylib */; };
 		09C5B06D17539BFD00CE8B1C /* DailyCashDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5B06C17539BFD00CE8B1C /* DailyCashDBHelper.m */; };
-		09DE8F58179811D400D12AD5 /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09DE8F57179811D400D12AD5 /* DatePickerView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +51,6 @@
 		09C5B06917539BA300CE8B1C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		09C5B06B17539BFD00CE8B1C /* DailyCashDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyCashDBHelper.h; sourceTree = "<group>"; };
 		09C5B06C17539BFD00CE8B1C /* DailyCashDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyCashDBHelper.m; sourceTree = "<group>"; };
-		09DE8F57179811D400D12AD5 /* DatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +102,6 @@
 				09C5B04C175395C100CE8B1C /* DailyCashAppDelegate.h */,
 				09C5B04D175395C100CE8B1C /* DailyCashAppDelegate.m */,
 				09C5B055175395C100CE8B1C /* MainStoryboard.storyboard */,
-				09DE8F57179811D400D12AD5 /* DatePickerView.xib */,
 				09C5B058175395C100CE8B1C /* DailyCashViewController.h */,
 				09C5B059175395C200CE8B1C /* DailyCashViewController.m */,
 				09C5B044175395C100CE8B1C /* Supporting Files */,
@@ -191,7 +188,6 @@
 				09C5B052175395C100CE8B1C /* Default@2x.png in Resources */,
 				09C5B054175395C100CE8B1C /* Default-568h@2x.png in Resources */,
 				09C5B057175395C100CE8B1C /* MainStoryboard.storyboard in Resources */,
-				09DE8F58179811D400D12AD5 /* DatePickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
