@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09248536182129E500F291B2 /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09248535182129E500F291B2 /* DatePickerView.xib */; };
 		09C5B03E175395C100CE8B1C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5B03D175395C100CE8B1C /* UIKit.framework */; };
 		09C5B040175395C100CE8B1C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5B03F175395C100CE8B1C /* Foundation.framework */; };
 		09C5B042175395C100CE8B1C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5B041175395C100CE8B1C /* CoreGraphics.framework */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09248535182129E500F291B2 /* DatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
 		09C5B03A175395C100CE8B1C /* DailyCash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyCash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C5B03D175395C100CE8B1C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		09C5B03F175395C100CE8B1C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +104,7 @@
 				09C5B04C175395C100CE8B1C /* DailyCashAppDelegate.h */,
 				09C5B04D175395C100CE8B1C /* DailyCashAppDelegate.m */,
 				09C5B055175395C100CE8B1C /* MainStoryboard.storyboard */,
+				09248535182129E500F291B2 /* DatePickerView.xib */,
 				09C5B058175395C100CE8B1C /* DailyCashViewController.h */,
 				09C5B059175395C200CE8B1C /* DailyCashViewController.m */,
 				09C5B044175395C100CE8B1C /* Supporting Files */,
@@ -188,6 +191,7 @@
 				09C5B052175395C100CE8B1C /* Default@2x.png in Resources */,
 				09C5B054175395C100CE8B1C /* Default-568h@2x.png in Resources */,
 				09C5B057175395C100CE8B1C /* MainStoryboard.storyboard in Resources */,
+				09248536182129E500F291B2 /* DatePickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

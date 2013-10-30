@@ -50,7 +50,7 @@
     self.txtDate.inputView = self.datePickerView;
     //self.customInput.hidden = YES;
     
-    //self.txtDate.inputAccessoryView = self.accessoryView;
+    self.txtDate.inputAccessoryView = self.accessoryView;
     //self.accessoryView.hidden = YES;
     
     _txtNote.text = @"No Comments!";

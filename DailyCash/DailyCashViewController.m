@@ -137,24 +137,13 @@
     NSString *csv = @"Account,CategaryName,RecordDate,NoteText\n";
     
     NSString *fileName = [[self documentsPath] stringByAppendingPathComponent:@"myFile.csv"];
-    NSLog(@"%@",fileName);
-    
-    @try {
-        [self writeToFile:csv withFileName:fileName];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"*************Exception: %@", exception);
-    }
-    @finally {
-        
-    }
+    [self writeToFile:csv withFileName:fileName];
+
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *sqLiteDb = [documentsDirectory stringByAppendingPathComponent:@"DailyCashDatabase"];
     
-    @try
-    {
     if(sqlite3_open([sqLiteDb UTF8String], &db) == SQLITE_OK)
     {
         const char *sqlStatement = [[NSString stringWithFormat:@"SELECT * FROM CASHITEMS"] UTF8String];
@@ -175,25 +164,36 @@
             
             sqlite3_finalize(compiledStatement);
             sqlite3_close(db);
-            
         }
-    }
-        else{
-            NSLog(@"database error");
-        }
-    }
-    @catch (NSException *ex)
-    {
-        NSLog(@"Exception: %@", ex);
     }
     
-    NSString *fileContent = [self readFromFile:fileName];
-
-    NSLog(@"%@",fileContent);
+    //NSString *fileContent = [self readFromFile:fileName];
     
     alert=[[UIAlertView alloc] initWithTitle:@"Note" message:@"Generate report is successful!" delegate:self cancelButtonTitle:nil otherButtonTitles:nil];
     [alert show];
     
+    UIActivityIndicatorView *active = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    
+    active.center = CGPointMake(alert.bounds.size.width/2, alert.bounds.size.height-40);
+    
+    [alert addSubview:active];
+    
+    [active startAnimating];
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.0001 target:self selector:@selector(alertDismiss) userInfo:nil repeats:NO];
+    
+    [self performSelector:@selector(backToMainPage) withObject:nil afterDelay:3];
+    
+}
+
+-(void)alertDismiss
+{
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
+}
+
+-(void)backToMainPage
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (NSString *) documentsPath{
