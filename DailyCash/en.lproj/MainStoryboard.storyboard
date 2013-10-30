@@ -260,7 +260,6 @@
                                 </state>
                                 <connections>
                                     <action selector="GenerateCSVReport:" destination="2" eventType="touchUpInside" id="znT-qB-BHk"/>
-                                    <action selector="GenerateReportToCSV:" destination="2" eventType="touchUpInside" id="WgL-iz-nLf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -333,6 +332,40 @@
             <point key="canvasLocation" x="281" y="-254"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="DailyCashNewItemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DailyCashNewItemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelNewItem:"/>
+                <relationship kind="action" name="clickInDateTextFiled:"/>
+                <relationship kind="action" name="dateChanged:"/>
+                <relationship kind="action" name="doneEditing:"/>
+                <relationship kind="action" name="saveItem:"/>
+                <relationship kind="action" name="textFieldDoneEditing:"/>
+                <relationship kind="outlet" name="accessoryView" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="customInput" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="datePickerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="txtCashAccount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtCategaryName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtNote" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="DailyCashViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DailyCashViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="GenerateCSVReport:"/>
+                <relationship kind="outlet" name="lblCurrentMonth" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblMonthInAndOutcome" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblTodayInAndOutcome" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblTotalOutcome" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblWeekInAndOutcome" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
